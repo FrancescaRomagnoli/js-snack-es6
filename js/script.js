@@ -20,7 +20,7 @@ const bicycleThree = new Bicycle("Bicycle Three", 40);
 // # objects array
 
 const bicycleList = [bicycleOne, bicycleTwo, bicycleThree];
-console.log(bicycleList);
+// console.log(bicycleList);
 
 let lightestBicycle = bicycleList[0];
 
@@ -32,7 +32,7 @@ for (i = 1; i < bicycleList.length; i++) {
   }
 }
 
-console.log(lightestBicycle.name);
+console.log("The lightest bicycle is: ", lightestBicycle.name);
 
 // $ Snack 2
 // $ Creare un array di oggetti di squadre di calcio.
@@ -49,10 +49,29 @@ function footballTeam(name) {
   this.fouls = 0;
 }
 
+function randomNum(min, max) {
+  let num = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  return num;
+}
+
 // # objects
 
 const footballTeam1 = new footballTeam("AFC Richmond");
 const footballTeam2 = new footballTeam("Crystal Palace F.C.");
 const footballTeam3 = new footballTeam("West Ham United F.C.");
 
-const FootballTeams = [footballTeam1, footballTeam2, footballTeam3];
+const footballTeams = [footballTeam1, footballTeam2, footballTeam3];
+// console.log(footballTeams);
+
+const footballTeamsStats = [];
+
+for (i = 0; i < footballTeams.length; i++) {
+  let currentTeam = footballTeams[i];
+  currentTeam.points = randomNum(1, 100);
+  currentTeam.fouls = randomNum(1, 99);
+
+  footballTeamsStats.push(currentTeam.name + " fouls: " + currentTeam.fouls);
+}
+
+console.log(footballTeamsStats);
