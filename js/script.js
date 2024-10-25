@@ -1,4 +1,4 @@
-// $ Snack 1
+// ! Snack 1
 // $ Creare un array di oggetti:
 // $ Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
 // $ Stampare a schermo la bici con peso minore.
@@ -24,6 +24,8 @@ const bicycleList = [bicycleOne, bicycleTwo, bicycleThree];
 
 let lightestBicycle = bicycleList[0];
 
+// # weight comparison
+
 for (i = 1; i < bicycleList.length; i++) {
   let currentBicycle = bicycleList[i];
 
@@ -32,9 +34,11 @@ for (i = 1; i < bicycleList.length; i++) {
   }
 }
 
+// # result
+
 console.log("The lightest bicycle is: ", lightestBicycle.name);
 
-// $ Snack 2
+// ! Snack 2
 // $ Creare un array di oggetti di squadre di calcio.
 // $  Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
 // $ Nome sarà l'unica proprietà da compilare, le altre saranno tutte settate a 0.
@@ -66,6 +70,8 @@ const footballTeams = [footballTeam1, footballTeam2, footballTeam3];
 
 const footballTeamsStats = [];
 
+// # points and fouls generation
+
 for (i = 0; i < footballTeams.length; i++) {
   let currentTeam = footballTeams[i];
   currentTeam.points = randomNum(1, 100);
@@ -74,4 +80,33 @@ for (i = 0; i < footballTeams.length; i++) {
   footballTeamsStats.push(currentTeam.name + " fouls: " + currentTeam.fouls);
 }
 
+// # result
+
 console.log(footballTeamsStats);
+
+// ! Snack 3 (Bonus)
+// $ Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
+// $ La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
+
+// # functions
+
+function betweenCounter(arr, numOne, numTwo) {
+  const newArr = [];
+  let i = numOne + 1;
+
+  if (numOne >= numTwo) {
+    console.error("numOne needs to be less than numTwo");
+    return;
+  }
+
+  while (i < numTwo) {
+    newArr.push(arr[i]);
+    i++;
+  }
+
+  return newArr;
+}
+
+const aRandomArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+console.log(betweenCounter(aRandomArray, 3, 10));
